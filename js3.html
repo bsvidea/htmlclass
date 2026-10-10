@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addqty()
+        {
+            quantity=parseInt(document.getElementById("qty").innerText);
+            quantity++;
+            document.getElementById("qty").innerText=quantity;
+
+            document.getElementById("amount").innerText=quantity*78;
+        }
+        function subqty()
+        {
+            quantity=parseInt(document.getElementById("qty").innerText);
+            if(quantity>1)
+            {
+                quantity--;
+                document.getElementById("qty").innerText=quantity;
+                document.getElementById("amount").innerText=quantity*78;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label>Arun Icecream</label>
+        
+        <button onclick="subqty()">-</button>
+        <span id="qty">1</span>
+        <button onclick="addqty()">+</button>
+        <span id="amount">78</span>
+    </div>
+</body>
+</html>

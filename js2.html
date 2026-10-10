@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #errmsg
+        {
+            color:red;
+        }
+    </style>
+    <script>
+        function setname()
+        {
+            name=document.getElementById("username").value;
+            if(name=='')
+            {
+                document.getElementById("errmsg").innerText="Name should not be blank"   ;
+                document.getElementById("username").focus();
+            }
+            else
+            {
+                document.getElementById("errmsg").innerText="";
+                console.log(name);
+                document.getElementById("titletext").innerText="Welcome "+name.toUpperCase();
+            }
+        }
+    </script>
+</head>
+<body
+    <div>
+        <label>Name</label>
+        <input type="text" id="username">
+        <button onclick="setname()">Click</button>
+        <span id="errmsg"></span>
+    </div>
+    <h1 id="titletext">Welcome</h1>
+
+</body>
+</html>
