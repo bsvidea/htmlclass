@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .seat
+        {
+            width:2.5vw;
+            height: 12vh;
+            border:.2vw solid green;
+            border-radius: 1vw;
+            margin: .5vw;
+        }
+        .selectedseat
+        {
+            background-color: darkgreen;
+        }
+        .pillow
+        {
+            width: 2vw;
+            background-color: rgb(206, 209, 208);
+            height: 2vh;
+            margin: auto;
+            margin-top: 9vh;
+            border-radius: .25vw;
+        }
+        .deck
+        {
+            height: 85vh;
+            width: 17vw;
+            border: .2vw solid gray;
+            border-radius: 2vw;
+            float: left;
+            margin-right: 2vw;
+        }
+    </style>
+    <script>
+        count=0;
+        function makeselect()
+        {
+            console.log(event.target);
+            if(event.target.classList.contains("selectedseat"))
+            {
+                event.target.classList.remove("selectedseat");
+                count--;
+            }
+            else
+            {
+                event.target.classList.add("selectedseat");
+                count++;
+            }
+            document.getElementById("totalfare").innerText=count*799;
+        }
+        function createseats()
+        {
+            for(i=0;i<6;i++)
+            {
+                seat=document.createElement('div');
+                pillow=document.createElement('div');
+                seat.className="seat";
+                pillow.className="pillow";
+                seat.appendChild(pillow);
+                seat.addEventListener('click',makeselect);
+
+                document.getElementById("lowerdeck").appendChild(seat);
+            }
+        }
+    </script>
+</head>
+<body onload="createseats()">
+
+    <div class="deck" id="lowerdeck">
+
+    </div>
+
+    <h2 id="totalfare"></h2>
+</body>
+</html>
